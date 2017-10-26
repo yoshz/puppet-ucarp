@@ -1,0 +1,23 @@
+#
+# Managed by Puppet, local changes will be overwritten
+#
+# The number (from 001 to 255) in the name of the file is the identifier
+
+# Physical IP
+SOURCE_ADDRESS="<%= @source_address %>"
+
+# Virtual IP
+VIP_ADDRESS="<%= @vip_address %>"
+
+# Network Interface
+BIND_INTERFACE="<%= @bind_interface %>"
+
+# Carp Password
+PASSWORD="<%= @password %>"
+
+# Other options
+<% if @is_master then -%>
+OPTIONS="--shutdown --preempt --advskew=1 --advbase=2"
+<% else -%>
+OPTIONS="--shutdown --advskew=10 --advbase=2"
+<% end -%>
