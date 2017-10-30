@@ -2,9 +2,9 @@ define ucarp::host (
   String $vip_address,
   String $ensure = present,
   String $node_id = $name,
-  String $source_address = $::ipaddress,
   String $master_hostname = $::hostname,
   String $bind_interface = $ucarp::bind_interface,
+  String $source_address = $facts['networking']['interfaces'][$bind_interface]['ip'],
   String $password = $ucarp::password,
 ){
   include ::ucarp
