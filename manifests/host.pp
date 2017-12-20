@@ -19,5 +19,6 @@ define ucarp::host (
     group    => "root",
     notify   => Service[$ucarp::params::service],
     require  => File[$ucarp::params::config_dir],
+    before   => Service[$ucarp::params::service],
   }
 }
