@@ -5,7 +5,7 @@ define ucarp::host (
   String $master_hostname = $::hostname,
   String $bind_interface = $ucarp::bind_interface,
   String $source_address = $facts['networking']['interfaces'][$bind_interface]['ip'],
-  String $password = $ucarp::password,
+  Optional[String] $password = undef,
 ){
   include ::ucarp
 

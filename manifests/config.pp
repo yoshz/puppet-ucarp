@@ -6,6 +6,17 @@ class ucarp::config {
     force   => true,
     recurse => true,
   }
+  if $ucarp::password {
+    $password_file = "${ucarp::params::config_dir}/password"
+    file { $password_file:
+      ensure  => file,
+      owner   => "root",
+      group   => "root",
+      mode    => "0600",
+      content => $ucarp::password,
+      notify  => Service[$ucarp::params::service],
+    }
+  }
   file { "${ucarp::params::config_dir}/vip-common.conf":
     ensure  => file,
     owner   => "root",

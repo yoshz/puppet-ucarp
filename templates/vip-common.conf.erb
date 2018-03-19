@@ -1,3 +1,7 @@
 #
 # Managed by Puppet, local changes will be overwritten
 #
+
+<% if @password_file -%>
+PASSFILE="<%= @password_file %>"
+<% end %>

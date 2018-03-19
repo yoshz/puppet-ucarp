@@ -12,8 +12,10 @@ VIP_ADDRESS="<%= @vip_address %>"
 # Network Interface
 BIND_INTERFACE="<%= @bind_interface %>"
 
+<% if @password then -%>
 # Carp Password
 PASSWORD="<%= @password %>"
+<% end -%>
 
 # Other options
 <% if @is_master then -%>
