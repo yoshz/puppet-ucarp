@@ -14,6 +14,13 @@ class ucarp::config {
     content => template('ucarp/vip-common.conf.erb'),
     notify  => Service[$ucarp::params::service],
   }
+  file { "${ucarp::params::script_dir}/ucarp":
+    ensure  => file,
+    owner   => "root",
+    group   => "root",
+    mode    => "0700",
+    source  => "puppet:///modules/ucarp/ucarp.sh",
+  }
   file { "${ucarp::params::script_dir}/vip-up":
     ensure  => file,
     owner   => "root",
