@@ -1,3 +1,4 @@
+# Class ucarp::service
 class ucarp::service {
   if length($ucarp::hosts) > 0 {
     $ensure = running

@@ -1,6 +1,6 @@
 {
-  "name": "yoshz/ucarp",
-  "version": "0.2.1",
+  "name": "yoshz-ucarp",
+  "version": "0.3.0",
   "author": "yoshz",
   "summary": "Module to configure one or multiple Ucarp interfaces",
   "license": "Apache-2.0",
@@ -8,8 +8,21 @@
   "project_page": "https://github.com/yoshz/puppet-ucarp",
   "issues_url": "https://github.com/yoshz/puppet-ucarp/issues",
   "dependencies": [
-    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+    {"name":"puppetlabs/stdlib","version_requirement":">= 3.2.0"}
   ],
-  "data_provider": null
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "7"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">= 4.5.0 < 7.0.0"
+    }
+  ]
 }
 

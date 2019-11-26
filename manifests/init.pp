@@ -1,4 +1,4 @@
-# Class uarp
+# Class ucarp
 class ucarp (
   Optional[String] $bind_interface = undef,
   Optional[String] $password = undef,

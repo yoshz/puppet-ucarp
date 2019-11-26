@@ -28,21 +28,21 @@ Add the module to node configuration:
 ```puppet
 node /host*/ {
   class { '::ucarp':
-    bind_interface => 'ens160', 
-    password       => 'ProtectedPassword', 
+    bind_interface => 'ens160',
+    password       => 'ProtectedPassword',
   }
   ucarp::host { '001':
-    bind_interface  => 'ens160', 
+    bind_interface  => 'ens160',
     vip_address     => '192.168.0.101',
     source_address  => '192.168.0.1',
     master_hostname => 'host001',
-  }  
+  }
   ucarp::host { '002':
-    bind_interface  => 'ens160', 
+    bind_interface  => 'ens160',
     vip_address     => '192.168.0.102',
     source_address  => '192.168.0.2',
     master_hostname => 'host002',
-  }  
+  }
 }
 ```
 
@@ -80,6 +80,11 @@ Can be set as parameter on `ucarp` as default for all hosts.
 Network interface to bind the virtual ip address.
 Can be set as parameter on `ucarp` as default for all hosts.
 
+
+### Host Parameters
+
+Per host you can override the default parameters and configure the following parameters:
+
 #### `vip_address`
 
 Virtual ip address that is assigned by ucarp
@@ -94,6 +99,21 @@ Defaults to `$::ipaddress`.
 The hostname of the master server that should have the virtual ip address assigned.
 Defaults to `$::hostname`.
 
+#### `master_down_script`
+
+Override down script on master node.
+
+#### `master_up_script`
+
+Override up script on master node.
+
+#### `backup_down_script`
+
+Override down script on backup nodes.
+
+#### `backup_up_script`
+
+Override up script on backup nodes.
 
 ## Limitations
 
